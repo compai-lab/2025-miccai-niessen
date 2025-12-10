@@ -1,6 +1,8 @@
-# Cleaned Terminal Commands for Environment Setup
+# Terminal Commands for Environment Setup from Scratch
 
-This list removes duplicates and keeps the likely-successful commands based on your final checks.
+These terminal commands to setup the environment from scratch, were communicated to us by an external user of our repo. We highly appreciate your feedback!
+Cuda toolkit and pytorch versions might have to be adjusted according to your ressources. Compatible versions can be found on https://pytorch.org/get-started/previous-versions/.<img width="395" height="21" alt="image" src="https://github.com/user-attachments/assets/d213465a-a774-4d23-b073-464a580340ca" />
+
 
 ```bash
 conda create -n inr-env python=3.10 pip -c conda-forge
