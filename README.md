@@ -50,6 +50,8 @@ If you use this code, please cite our paper:
    conda env create -f inr_env.yml
    source activate inr_env OR conda activate inr_env
    ```
+   If this fails, set up the environment from scratch using the commands in environment_setup_from_scratch.md.
+   
 2. Load your data at the top of the **main.py** script. The data is needed in the following format:
    
     Vx,Vy,Vz: spatial dimensions  
