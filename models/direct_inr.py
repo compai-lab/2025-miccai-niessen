@@ -83,18 +83,18 @@ class tcnnHashgridEncoder(nn.Module):
 
 
 
-def get_model(in_dim, out_dim, encoding, model_type, hidden_dims):
+def get_model(cfg,in_dim, out_dim, encoding, model_type, hidden_dims):
     if encoding == 'hashgrid':
         #if in_dim == 2
         encoding_config = {
             "otype": "Grid",
             "type": "Hash",
-            "n_levels": 16,
-            "n_features_per_level": 2,
-            "log2_hashmap_size": 20,
-            "base_resolution": 16,
-            "per_level_scale": 1.26, #1.26, #1.22, #1.32, #1.26 #1.5  16*1.26^15 ~= 512
-            "interpolation": "linear"
+            "n_levels": cfg.network.encoding_params.n_levels,
+            "n_features_per_level": cfg.network.encoding_params.n_features_per_level,
+            "log2_hashmap_size": cfg.network.encoding_params.log2_hashmap_size,
+            "base_resolution": cfg.network.encoding_params.base_resolution,
+            "per_level_scale": cfg.network.encoding_params.per_level_scale, #1.26, #1.22, #1.32, #1.26 #1.5  16*1.26^15 ~= 512
+            "interpolation": cfg.network.encoding_params.interpolation,
         }
         encoder = tcnnHashgridEncoder(in_dim, encoding_config)
     elif encoding == 'none':
@@ -145,7 +145,7 @@ class DirectINRReconstructor():
         Returns:
             nn.Module: model object
         """
-        return get_model(cfg.in_dim, self.out_dim, cfg.encoding, cfg.model_type, cfg.hidden_dims).to(self.device)
+        return get_model(cfg, cfg.in_dim, self.out_dim, cfg.encoding, cfg.model_type, cfg.hidden_dims).to(self.device)
     
     def _get_loss(self, loss_cfg):
         r"""
