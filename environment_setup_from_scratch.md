@@ -25,7 +25,7 @@ conda install -c conda-forge \
    scikit-image \
    h5py \   matplotlib \
    pyyaml \
-   tqdm \   cmake \   ninja \   gcc_linux-64 gxx_linux-64
+   tqdm \   cmake \   ninja \   gcc_linux-64 \ gxx_linux-64
 ```
 
 ```bash
